@@ -1,4 +1,6 @@
 .vscode
 .vscode/*
-!.vscode/*
 .DS_Store
+
+*
+!*.cpp
