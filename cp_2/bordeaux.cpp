@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <utility>
+#include <algorithm>
 
 using namespace std;
 
@@ -10,30 +11,30 @@ int main() {
 
     int n; cin >> n;
 
-    vector<long long> d(n), v(n), diff(n);
-    long long positives_sum = 0;
-    long long max_vi = -LLONG_MAX;
-    long long min_di = LLONG_MAX;
+    vector<pair<long long, long long> > dv(n);
+    long long had_to_borrow_total = 0;
+    long long current_have = 0;
 
     while (n--) {
-        long long di, vi; cin >> di >> vi;
-        diff[n] = vi - di;
-        if (diff[n] > 0) {
-            positives_sum += diff[n];
-            if (vi > max_vi) {
-                max_vi = vi;
+      long long di, vi; cin >> di >> vi;
+      dv[n] = make_pair(di, vi);
+    }
+
+    sort(dv.begin(), dv.end());
+
+    for (int i = 0; i < dv.size(); i++) {
+        if (dv[i].second > dv[i].first) {
+            if (current_have < dv[i].first) {
+                long long had_to_borrow_now = dv[i].first - current_have;
+
+                had_to_borrow_total += had_to_borrow_now;
+                current_have += had_to_borrow_now;
             }
+            current_have -= dv[i].first;
+            current_have += dv[i].second;
         }
-        if (di < min_di) {
-            min_di = di;
-        }
-        // cout << diff[n] << endl;
     }
-    // cout << "---" << endl;
-    if (positives_sum == 0) {
-        cout << 0 << " " << 0 << endl;
-    } else {
-        cout << abs(positives_sum - max_vi) << " " << positives_sum << endl;
-    }
+
+    cout << had_to_borrow_total << " " << current_have - had_to_borrow_total << endl;
     return 0;
 }
