@@ -3,6 +3,22 @@
 
 using namespace std;
 
+// square root decomposition technique
+// divide the array into blocks of size sqrt(n)
+// and store the sum of each block
+// query: iterate over the blocks that are completely inside the range
+// and add the sum of those blocks
+// update: update the block that contains the index and update the sum of that block
+// O(sqrt(n)) query and update
+
+// segment tree
+// divide the array into a binary tree
+// each node stores the sum of the elements in the range represented by that node
+// query: iterate over the nodes that are completely inside the range
+// and add the sum of those nodes
+// update: update the node that contains the index and update the sum of that node
+// O(log(n)) query and update
+
 class SegmentTree {
 private:
     vector<int> tree;

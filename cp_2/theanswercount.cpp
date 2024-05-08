@@ -4,6 +4,9 @@
 
 using namespace std;
 
+// what is bit_is_set function?
+// rewrite the function to use bit_is_set function?
+
 vector<long long> computeSubsetSums(const vector<int>& nums) {
     vector<long long> subsetSums = {0};
     for (int num : nums) {
