@@ -2,6 +2,8 @@
 .vscode/*
 .DS_Store
 
-*
-!*/
-!*.cpp
+alice_eng.txt
+alice_ger.txt
+*.fasta
+
+alice_in_wonderland.txt
