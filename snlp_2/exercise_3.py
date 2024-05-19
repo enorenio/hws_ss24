@@ -58,5 +58,16 @@ class MillersModel:
         """
         
         # your code here
+
+        # Perplexity(w)= (i=1∏N 1/​P(wi​)) ** 1/​N
         
-        raise NotImplementedError
+        characters = list(text)
+
+        pwi = 1
+
+        for char in characters:
+            pwi *= self.get_prob(char)
+
+        perplexity_w = pow((1 / pwi), -(1 / len(characters)))
+
+        return perplexity_w
