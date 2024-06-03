@@ -7,3 +7,5 @@ alice_ger.txt
 *.fasta
 
 alice_in_wonderland.txt
+
+*.dSYM
