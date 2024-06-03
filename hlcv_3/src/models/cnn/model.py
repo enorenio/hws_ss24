@@ -14,7 +14,12 @@ class ConvNet(BaseModel):
         # (basically store them in self)                                  #
         ###################################################################
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
+        self.input_size = input_size
+        self.hidden_layers = hidden_layers
+        self.num_classes = num_classes
+        self.activation = activation
+        self.norm_layer = norm_layer
+        self.drop_prob = drop_prob
 
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         self._build_model()
@@ -32,6 +37,27 @@ class ConvNet(BaseModel):
         layers = []
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
+        # self.conv1 = nn.Conv2d(self.input_size, self.hidden_layers[0], kernnel_size=3, stride=1, padding=1)
+        # self.maxpool1 = nn.MaxPool2d(kernel_size=2, stride=2)
+        # self.relu1 = self.activation()
+
+        # layers.append(self.conv1)
+        # layers.append(self.maxpool1)
+        # layers.append(self.relu1)
+
+        self.layers = nn.ModuleList()
+
+        self.layers.append(nn.Conv2d(self.input_size, self.hidden_layers[0], kernel_size=3, stride=1, padding=1))
+        self.layers.append(nn.MaxPool2d(kernel_size=2, stride=2))
+        self.layers.append(self.activation())
+
+        for i in range(1, len(self.hidden_layers) - 1):
+            self.layers.append(nn.Conv2d(self.hidden_layers[i-1], self.hidden_layers[i], kernel_size=3, stride=1, padding=1))
+            self.layers.append(nn.MaxPool2d(kernel_size=2, stride=2))
+            self.layers.append(self.activation())
+
+        self.layers.append(nn.Flatten())
+        self.layers.append(nn.Linear(self.hidden_layers[-1], self.num_classes))
 
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
@@ -52,7 +78,24 @@ class ConvNet(BaseModel):
         # You can use matlplotlib.imshow to visualize an image in python                #
         #################################################################################
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-        pass
+        weight_tensor = self.layers[0].weight.data.cpu().numpy()
+        num_filters = weight_tensor.shape[0]
+
+        # Calculate the grid size for plotting (e.g., 8x16 for 128 filters)
+        grid_rows = 8
+        grid_cols = 16
+        fig, axs = plt.subplots(grid_rows, grid_cols, figsize=(grid_cols, grid_rows))
+
+        for i in range(grid_rows * grid_cols):
+            ax = axs[i // grid_cols, i % grid_cols]
+            if i < num_filters:
+                # Normalize each filter using the provided _normalize method
+                filter_img = weight_tensor[i]
+                normalized_img = self._normalize(filter_img)
+                ax.imshow(normalized_img.transpose(1, 2, 0))  # Transpose to put channels last
+            ax.axis('off')
+
+        plt.show()
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
     def forward(self, x):
@@ -64,6 +107,10 @@ class ConvNet(BaseModel):
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****        
         out = None
 
-        
+        for layer in self.layers:
+            x = layer(x)
+
+        out = x
+
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return out

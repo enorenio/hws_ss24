@@ -4,6 +4,8 @@ from abc import abstractmethod
 
 
 class BaseModel(nn.Module):
+    def __init__(self):
+        super(BaseModel, self).__init__()
     """
     Base class for all models
     """
@@ -27,6 +29,13 @@ class BaseModel(nn.Module):
         # Print the number of **trainable** parameters  #
         # by appending them to ret_str                  #
         #################################################
-        
+
+        sum = 0
+        for name, param in self.named_parameters():
+            if param.requires_grad:
+                ret_str += f'\n{name}: {param.numel()}'
+                sum += param.numel()
+
+        ret_str += f'\nTotal number of trainable parameters: {sum}'
         
         return ret_str

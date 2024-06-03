@@ -1,0 +1,315 @@
+2024-06-03 12:54:01,945:INFO : ConvNet(
+  (layers): ModuleList(
+    (0): Conv2d(3, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (2): ReLU()
+    (3): Conv2d(128, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (5): ReLU()
+    (6): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (7): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (8): ReLU()
+    (9): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (10): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (11): ReLU()
+    (12): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (13): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (14): ReLU()
+    (15): Flatten(start_dim=1, end_dim=-1)
+    (16): Linear(in_features=512, out_features=10, bias=True)
+  )
+)
+layers.0.weight: 3456
+layers.0.bias: 128
+layers.3.weight: 589824
+layers.3.bias: 512
+layers.6.weight: 2359296
+layers.6.bias: 512
+layers.9.weight: 2359296
+layers.9.bias: 512
+layers.12.weight: 2359296
+layers.12.bias: 512
+layers.16.weight: 5120
+layers.16.bias: 10
+Total number of trainable parameters: 7678474
+2024-06-03 12:54:01,947:DEBUG : Loaded backend module://matplotlib_inline.backend_inline version unknown.
+2024-06-03 12:54:01,948:DEBUG : Loaded backend module://matplotlib_inline.backend_inline version unknown.
+2024-06-03 12:54:01,951:DEBUG : findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0.
+2024-06-03 12:54:01,951:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,952:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Vector-Bold.otf', name='MathJax_Vector-Bold', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_SansSerif-Regular.otf', name='MathJax_SansSerif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/Z003-MediumItalic.otf', name='Z003', style='italic', variant='normal', weight=500, stretch='normal', size='scalable')) = 11.145
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 0.5349999999999999
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/firacode/FiraCode-Medium.ttf', name='Fira Code', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/URWBookman-DemiItalic.otf', name='URW Bookman', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusSansNarrow-Regular.otf', name='Nimbus Sans Narrow', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/URWGothic-BookOblique.otf', name='URW Gothic', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/noto/NotoMono-Regular.ttf', name='Noto Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusSans-BoldItalic.otf', name='Nimbus Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/quicksand/Quicksand-Medium.ttf', name='Quicksand Medium', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/firacode/FiraCode-SemiBold.ttf', name='Fira Code', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-ExtraLight.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=200, stretch='normal', size='scalable')) = 0.24
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Fraktur-Regular.otf', name='MathJax_Fraktur', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', name='Liberation Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/P052-Bold.otf', name='P052', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/cantarell/Cantarell-Light.otf', name='Cantarell', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 0.25
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusSans-Regular.otf', name='Nimbus Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Bold.ttf', name='Liberation Sans Narrow', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Main-Regular.otf', name='MathJax_Main', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-BoldItalic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/noto/NotoSansMono-Bold.ttf', name='Noto Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/P052-Italic.otf', name='P052', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_SansSerif-Bold.otf', name='MathJax_SansSerif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/firacode/FiraCode-Light.ttf', name='Fira Code', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Main-Italic.otf', name='MathJax_Main', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Italic.ttf', name='Liberation Sans Narrow', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 11.25
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusSans-Bold.otf', name='Nimbus Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,953:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Caligraphic-Regular.otf', name='MathJax_Caligraphic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusMonoPS-Regular.otf', name='Nimbus Mono PS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusMonoPS-Bold.otf', name='Nimbus Mono PS', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-BoldItalic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusSans-Italic.otf', name='Nimbus Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/cantarell/Cantarell-Regular.otf', name='Cantarell', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Main-Bold.otf', name='MathJax_Main', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf', name='Liberation Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_SansSerif-Italic.otf', name='MathJax_SansSerif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/C059-BdIta.otf', name='C059', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusMonoPS-Italic.otf', name='Nimbus Mono PS', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-BoldItalic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusSansNarrow-BoldOblique.otf', name='Nimbus Sans Narrow', style='oblique', variant='normal', weight=700, stretch='condensed', size='scalable')) = 11.535
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/C059-Bold.otf', name='C059', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/cantarell/Cantarell-Thin.otf', name='Cantarell', style='normal', variant='normal', weight=100, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/URWBookman-Light.otf', name='URW Bookman', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/URWGothic-DemiOblique.otf', name='URW Gothic', style='oblique', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusRoman-Regular.otf', name='Nimbus Roman', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/noto/NotoSansMono-Regular.ttf', name='Noto Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf', name='Liberation Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSansNarrow-BoldItalic.ttf', name='Liberation Sans Narrow', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 11.535
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/C059-Italic.otf', name='C059', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Math-BoldItalic.otf', name='MathJax_Math', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/URWGothic-Book.otf', name='URW Gothic', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Typewriter-Regular.otf', name='MathJax_Typewriter', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Fraktur-Bold.otf', name='MathJax_Fraktur', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Regular.ttf', name='Liberation Sans Narrow', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/C059-Roman.otf', name='C059', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/D050000L.otf', name='D050000L', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,954:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Caligraphic-Bold.otf', name='MathJax_Caligraphic', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/URWGothic-Demi.otf', name='URW Gothic', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/hack/Hack-Bold.ttf', name='Hack', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/URWBookman-LightItalic.otf', name='URW Bookman', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='condensed', size='scalable')) = 1.535
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuMathTeXGyre.ttf', name='DejaVu Math TeX Gyre', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/firacode/FiraCode-Bold.ttf', name='Fira Code', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_WinChrome-Regular.otf', name='MathJax_WinChrome', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/URWBookman-Demi.otf', name='URW Bookman', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/StandardSymbolsPS.otf', name='Standard Symbols PS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusMonoPS-BoldItalic.otf', name='Nimbus Mono PS', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusRoman-Bold.otf', name='Nimbus Roman', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size4-Regular.otf', name='MathJax_Size4', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusRoman-Italic.otf', name='Nimbus Roman', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/cantarell/Cantarell-ExtraBold.otf', name='Cantarell', style='normal', variant='normal', weight=800, stretch='normal', size='scalable')) = 10.43
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Math-Regular.otf', name='MathJax_Math', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/cantarell/Cantarell-Bold.otf', name='Cantarell', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_AMS-Regular.otf', name='MathJax_AMS', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', name='Liberation Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Math-Italic.otf', name='MathJax_Math', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/hack/Hack-Italic.ttf', name='Hack', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusSansNarrow-Oblique.otf', name='Nimbus Sans Narrow', style='oblique', variant='normal', weight=400, stretch='condensed', size='scalable')) = 11.25
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusSansNarrow-Bold.otf', name='Nimbus Sans Narrow', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 11.25
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size2-Regular.otf', name='MathJax_Size2', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/firacode/FiraCode-Regular.ttf', name='Fira Code', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/quicksand/Quicksand-Regular.ttf', name='Quicksand', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_WinIE6-Regular.otf', name='MathJax_WinIE6', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/firacode/FiraCode-Retina.ttf', name='Fira Code', style='normal', variant='normal', weight=450, stretch='normal', size='scalable')) = 10.0975
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/NimbusRoman-BoldItalic.otf', name='Nimbus Roman', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,955:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf', name='Droid Sans Fallback', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf', name='Liberation Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/P052-Roman.otf', name='P052', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='condensed', size='scalable')) = 1.25
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-Italic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/urw-base35/P052-BoldItalic.otf', name='P052', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/quicksand/Quicksand-Light.ttf', name='Quicksand Light', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Script-Regular.otf', name='MathJax_Script', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 11.535
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf', name='Liberation Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size3-Regular.otf', name='MathJax_Size3', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/hack/Hack-Regular.ttf', name='Hack', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/hack/Hack-BoldItalic.ttf', name='Hack', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Vector-Regular.otf', name='MathJax_Vector', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/quicksand/Quicksand-Bold.ttf', name='Quicksand', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/opentype/mathjax/MathJax_Size1-Regular.otf', name='MathJax_Size1', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2024-06-03 12:54:01,956:DEBUG : findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2024-06-03 12:54:01,956:DEBUG : findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/reni/miniconda3/envs/hws_ws23/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+2024-06-03 12:54:03,296:INFO : ------------ New Training Session ------------
+2024-06-03 12:54:03,297:DEBUG : ==> Start Training Epoch 1/10, lr=0.002000 
+2024-06-03 12:54:13,589:DEBUG : ==> Finished Epoch 1/10.
+2024-06-03 12:54:13,590:DEBUG : ++> Evaluate at epoch 1 ...
+2024-06-03 12:54:16,911:DEBUG : ++> Finished evaluating epoch 1.
+2024-06-03 12:54:16,911:INFO :     epoch: 1.00000
+2024-06-03 12:54:16,911:INFO :     loss: 1.79862
+2024-06-03 12:54:16,911:INFO :     top1: 0.30989
+2024-06-03 12:54:16,911:INFO :     top5: 0.82569
+2024-06-03 12:54:16,911:INFO :     eval_loss: 1.47948
+2024-06-03 12:54:16,911:INFO :     eval_top1: 0.46260
+2024-06-03 12:54:16,911:INFO :     eval_top5: 0.92000
+2024-06-03 12:54:16,912:DEBUG : ==> Start Training Epoch 2/10, lr=0.002000 
+2024-06-03 12:54:27,197:DEBUG : ==> Finished Epoch 2/10.
+2024-06-03 12:54:27,197:DEBUG : ++> Evaluate at epoch 2 ...
+2024-06-03 12:54:30,596:DEBUG : ++> Finished evaluating epoch 2.
+2024-06-03 12:54:30,597:INFO :     epoch: 2.00000
+2024-06-03 12:54:30,597:INFO :     loss: 1.28553
+2024-06-03 12:54:30,597:INFO :     top1: 0.53153
+2024-06-03 12:54:30,597:INFO :     top5: 0.94149
+2024-06-03 12:54:30,597:INFO :     eval_loss: 1.16296
+2024-06-03 12:54:30,597:INFO :     eval_top1: 0.59000
+2024-06-03 12:54:30,597:INFO :     eval_top5: 0.95660
+2024-06-03 12:54:30,597:DEBUG : ==> Start Training Epoch 3/10, lr=0.002000 
+2024-06-03 12:54:40,940:DEBUG : ==> Finished Epoch 3/10.
+2024-06-03 12:54:40,940:DEBUG : ++> Evaluate at epoch 3 ...
+2024-06-03 12:54:44,449:DEBUG : ++> Finished evaluating epoch 3.
+2024-06-03 12:54:44,449:INFO :     epoch: 3.00000
+2024-06-03 12:54:44,449:INFO :     loss: 1.05270
+2024-06-03 12:54:44,449:INFO :     top1: 0.62191
+2024-06-03 12:54:44,449:INFO :     top5: 0.96369
+2024-06-03 12:54:44,449:INFO :     eval_loss: 0.99388
+2024-06-03 12:54:44,449:INFO :     eval_top1: 0.64640
+2024-06-03 12:54:44,449:INFO :     eval_top5: 0.96560
+2024-06-03 12:54:44,450:DEBUG : ==> Start Training Epoch 4/10, lr=0.002000 
+2024-06-03 12:54:55,436:DEBUG : ==> Finished Epoch 4/10.
+2024-06-03 12:54:55,437:DEBUG : ++> Evaluate at epoch 4 ...
+2024-06-03 12:54:59,112:DEBUG : ++> Finished evaluating epoch 4.
+2024-06-03 12:54:59,112:INFO :     epoch: 4.00000
+2024-06-03 12:54:59,112:INFO :     loss: 0.90103
+2024-06-03 12:54:59,112:INFO :     top1: 0.68153
+2024-06-03 12:54:59,112:INFO :     top5: 0.97373
+2024-06-03 12:54:59,112:INFO :     eval_loss: 0.88904
+2024-06-03 12:54:59,112:INFO :     eval_top1: 0.69060
+2024-06-03 12:54:59,112:INFO :     eval_top5: 0.97720
+2024-06-03 12:54:59,113:DEBUG : ==> Start Training Epoch 5/10, lr=0.002000 
+2024-06-03 12:55:10,709:DEBUG : ==> Finished Epoch 5/10.
+2024-06-03 12:55:10,710:DEBUG : ++> Evaluate at epoch 5 ...
+2024-06-03 12:55:14,577:DEBUG : ++> Finished evaluating epoch 5.
+2024-06-03 12:55:14,578:INFO :     epoch: 5.00000
+2024-06-03 12:55:14,578:INFO :     loss: 0.79487
+2024-06-03 12:55:14,578:INFO :     top1: 0.71942
+2024-06-03 12:55:14,578:INFO :     top5: 0.98131
+2024-06-03 12:55:14,578:INFO :     eval_loss: 0.80350
+2024-06-03 12:55:14,578:INFO :     eval_top1: 0.71100
+2024-06-03 12:55:14,578:INFO :     eval_top5: 0.98000
+2024-06-03 12:55:14,578:DEBUG : ==> Start Training Epoch 6/10, lr=0.001600 
+2024-06-03 12:55:26,239:DEBUG : ==> Finished Epoch 6/10.
+2024-06-03 12:55:26,240:DEBUG : ++> Evaluate at epoch 6 ...
+2024-06-03 12:55:30,112:DEBUG : ++> Finished evaluating epoch 6.
+2024-06-03 12:55:30,113:INFO :     epoch: 6.00000
+2024-06-03 12:55:30,113:INFO :     loss: 0.68071
+2024-06-03 12:55:30,113:INFO :     top1: 0.76156
+2024-06-03 12:55:30,113:INFO :     top5: 0.98576
+2024-06-03 12:55:30,113:INFO :     eval_loss: 0.71559
+2024-06-03 12:55:30,113:INFO :     eval_top1: 0.75340
+2024-06-03 12:55:30,113:INFO :     eval_top5: 0.98340
+2024-06-03 12:55:30,113:DEBUG : ==> Start Training Epoch 7/10, lr=0.001600 
+2024-06-03 12:55:41,819:DEBUG : ==> Finished Epoch 7/10.
+2024-06-03 12:55:41,819:DEBUG : ++> Evaluate at epoch 7 ...
+2024-06-03 12:55:45,676:DEBUG : ++> Finished evaluating epoch 7.
+2024-06-03 12:55:45,677:INFO :     epoch: 7.00000
+2024-06-03 12:55:45,677:INFO :     loss: 0.62108
+2024-06-03 12:55:45,677:INFO :     top1: 0.78229
+2024-06-03 12:55:45,677:INFO :     top5: 0.98904
+2024-06-03 12:55:45,677:INFO :     eval_loss: 0.67754
+2024-06-03 12:55:45,677:INFO :     eval_top1: 0.76340
+2024-06-03 12:55:45,677:INFO :     eval_top5: 0.98480
+2024-06-03 12:55:45,677:DEBUG : ==> Start Training Epoch 8/10, lr=0.001600 
+2024-06-03 12:55:57,400:DEBUG : ==> Finished Epoch 8/10.
+2024-06-03 12:55:57,401:DEBUG : ++> Evaluate at epoch 8 ...
+2024-06-03 12:56:01,267:DEBUG : ++> Finished evaluating epoch 8.
+2024-06-03 12:56:01,268:INFO :     epoch: 8.00000
+2024-06-03 12:56:01,268:INFO :     loss: 0.57134
+2024-06-03 12:56:01,268:INFO :     top1: 0.79911
+2024-06-03 12:56:01,268:INFO :     top5: 0.99016
+2024-06-03 12:56:01,268:INFO :     eval_loss: 0.66448
+2024-06-03 12:56:01,268:INFO :     eval_top1: 0.77860
+2024-06-03 12:56:01,268:INFO :     eval_top5: 0.98360
+2024-06-03 12:56:01,268:DEBUG : ==> Start Training Epoch 9/10, lr=0.001600 
+2024-06-03 12:56:12,897:DEBUG : ==> Finished Epoch 9/10.
+2024-06-03 12:56:12,898:DEBUG : ++> Evaluate at epoch 9 ...
+2024-06-03 12:56:17,111:DEBUG : ++> Finished evaluating epoch 9.
+2024-06-03 12:56:17,112:INFO :     epoch: 9.00000
+2024-06-03 12:56:17,112:INFO :     loss: 0.52827
+2024-06-03 12:56:17,112:INFO :     top1: 0.81456
+2024-06-03 12:56:17,112:INFO :     top5: 0.99198
+2024-06-03 12:56:17,112:INFO :     eval_loss: 0.63980
+2024-06-03 12:56:17,112:INFO :     eval_top1: 0.77600
+2024-06-03 12:56:17,112:INFO :     eval_top5: 0.98760
+2024-06-03 12:56:17,112:DEBUG : ==> Start Training Epoch 10/10, lr=0.001600 
+2024-06-03 12:56:28,750:DEBUG : ==> Finished Epoch 10/10.
+2024-06-03 12:56:28,750:DEBUG : ++> Evaluate at epoch 10 ...
+2024-06-03 12:56:32,982:DEBUG : ++> Finished evaluating epoch 10.
+2024-06-03 12:56:32,983:INFO :     epoch: 10.00000
+2024-06-03 12:56:32,983:INFO :     loss: 0.48232
+2024-06-03 12:56:32,983:INFO :     top1: 0.83231
+2024-06-03 12:56:32,983:INFO :     top5: 0.99318
+2024-06-03 12:56:32,983:INFO :     eval_loss: 0.73173
+2024-06-03 12:56:32,983:INFO :     eval_top1: 0.75820
+2024-06-03 12:56:32,983:INFO :     eval_top5: 0.98300
+2024-06-03 12:56:32,983:INFO : Saving checkpoint: Saved/CIFAR10_CNN/E10_model.pth ...
+2024-06-03 12:56:33,027:INFO : Checkpoint saved.
+2024-06-03 12:56:33,027:INFO : Saving checkpoint: Saved/CIFAR10_CNN/last_model.pth ...
+2024-06-03 12:56:33,066:INFO : Checkpoint saved.
+2024-06-03 12:56:56,987:INFO : Loading checkpoint: ./Saved/CIFAR10_CNN/last_model.pth ...
+2024-06-03 12:56:57,022:INFO : Checkpoint loaded.
+2024-06-03 12:56:57,022:DEBUG : ++> Evaluate at epoch 10 ...
+2024-06-03 12:57:04,822:DEBUG : ++> Finished evaluating epoch 10.
