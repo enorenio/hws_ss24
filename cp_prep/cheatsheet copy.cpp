@@ -1917,3 +1917,743 @@ Square root decomposition is a technique used to solve range query problems effi
 
 ===================
 
+// lazy segment tree
+// Works for: range add, range sum query, range update, point query
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class SegmentTree {
+    vector<long long> tree, lazy;
+    int n;
+
+public:
+    SegmentTree(int size) {
+        n = size;
+        tree.assign(4 * n, 0);
+        lazy.assign(4 * n, 0);
+    }
+
+    void propagate(int node, int start, int end) {
+        if (lazy[node] != 0) {
+            tree[node] += (end - start + 1) * lazy[node];
+            if (start != end) {
+                lazy[2 * node + 1] += lazy[node];
+                lazy[2 * node + 2] += lazy[node];
+            }
+            lazy[node] = 0;
+        }
+    }
+
+    void rangeUpdate(int node, int start, int end, int l, int r, int val) {
+        propagate(node, start, end);
+        if (start > r || end < l) return;
+
+        if (start >= l && end <= r) {
+            lazy[node] += val;
+            propagate(node, start, end);
+            return;
+        }
+
+        int mid = (start + end) / 2;
+        rangeUpdate(2 * node + 1, start, mid, l, r, val);
+        rangeUpdate(2 * node + 2, mid + 1, end, l, r, val);
+        tree[node] = tree[2 * node + 1] + tree[2 * node + 2];
+    }
+
+    long long rangeQuery(int node, int start, int end, int l, int r) {
+        propagate(node, start, end);
+        if (start > r || end < l) return 0;
+
+        if (start >= l && end <= r) return tree[node];
+
+        int mid = (start + end) / 2;
+        long long leftSum = rangeQuery(2 * node + 1, start, mid, l, r);
+        long long rightSum = rangeQuery(2 * node + 2, mid + 1, end, l, r);
+        return leftSum + rightSum;
+    }
+
+    void update(int l, int r, int val) {
+        rangeUpdate(0, 0, n - 1, l, r, val);
+    }
+
+    long long query(int l, int r) {
+        return rangeQuery(0, 0, n - 1, l, r);
+    }
+};
+
+int main() {
+    int n, q;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    SegmentTree segTree(n);
+
+    cout << "Enter the number of queries: ";
+    cin >> q;
+
+    while (q--) {
+        int type;
+        cout << "Enter query type (1 for add, 2 for sum): ";
+        cin >> type;
+
+        if (type == 1) {
+            int l, r, val;
+            cout << "Enter the range (l, r) and value to add: ";
+            cin >> l >> r >> val;
+            segTree.update(l, r, val);
+        } else if (type == 2) {
+            int l, r;
+            cout << "Enter the range (l, r) to query the sum: ";
+            cin >> l >> r;
+            cout << "Sum on segment: " << segTree.query(l, r) << endl;
+        }
+    }
+
+    return 0;
+}
+
+// probably better lazy segment tree:
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class SegmentTree {
+    vector<long long> tree, lazy;
+    int n;
+
+public:
+    SegmentTree(int size) {
+        n = size;
+        tree.assign(4 * n, 0);
+        lazy.assign(4 * n, 0);
+    }
+
+    // Function to propagate the lazy values
+    void propagate(int node, int start, int end) {
+        if (lazy[node] != 0) {
+            tree[node] += (end - start + 1) * lazy[node];  // Apply the lazy value to the current segment
+            if (start != end) {
+                lazy[2 * node + 1] += lazy[node];  // Mark lazy for the left child
+                lazy[2 * node + 2] += lazy[node];  // Mark lazy for the right child
+            }
+            lazy[node] = 0;  // Clear the lazy value for the current node
+        }
+    }
+
+    // Range update to add value to a segment
+    void rangeUpdate(int node, int start, int end, int l, int r, int val) {
+        propagate(node, start, end);  // Ensure any pending updates are applied
+        if (start > r || end < l) return;  // Out of range
+
+        if (start >= l && end <= r) {  // Segment is fully within range
+            lazy[node] += val;
+            propagate(node, start, end);
+            return;
+        }
+
+        int mid = (start + end) / 2;
+        rangeUpdate(2 * node + 1, start, mid, l, r, val);
+        rangeUpdate(2 * node + 2, mid + 1, end, l, r, val);
+        tree[node] = tree[2 * node + 1] + tree[2 * node + 2];  // Recompute the value for the current node
+    }
+
+    // Point update to add value to a specific index
+    void pointUpdate(int node, int start, int end, int idx, int val) {
+        propagate(node, start, end);  // Apply any pending updates
+        if (start == end) {  // Leaf node
+            tree[node] += val;
+            return;
+        }
+
+        int mid = (start + end) / 2;
+        if (idx <= mid) {
+            pointUpdate(2 * node + 1, start, mid, idx, val);
+        } else {
+            pointUpdate(2 * node + 2, mid + 1, end, idx, val);
+        }
+        tree[node] = tree[2 * node + 1] + tree[2 * node + 2];  // Recompute the value for the current node
+    }
+
+    // Range query to find the sum of elements in a segment
+    long long rangeQuery(int node, int start, int end, int l, int r) {
+        propagate(node, start, end);  // Apply any pending updates
+        if (start > r || end < l) return 0;  // Out of range
+
+        if (start >= l && end <= r) return tree[node];  // Segment is fully within range
+
+        int mid = (start + end) / 2;
+        long long leftSum = rangeQuery(2 * node + 1, start, mid, l, r);
+        long long rightSum = rangeQuery(2 * node + 2, mid + 1, end, l, r);
+        return leftSum + rightSum;
+    }
+
+    // Point query to find the value at a specific index
+    long long pointQuery(int node, int start, int end, int idx) {
+        propagate(node, start, end);  // Apply any pending updates
+        if (start == end) return tree[node];  // Leaf node
+
+        int mid = (start + end) / 2;
+        if (idx <= mid) {
+            return pointQuery(2 * node + 1, start, mid, idx);
+        } else {
+            return pointQuery(2 * node + 2, mid + 1, end, idx);
+        }
+    }
+
+    // Helper functions to call the segment tree functions
+    void updateRange(int l, int r, int val) {
+        rangeUpdate(0, 0, n - 1, l, r, val);
+    }
+
+    void updatePoint(int idx, int val) {
+        pointUpdate(0, 0, n - 1, idx, val);
+    }
+
+    long long queryRange(int l, int r) {
+        return rangeQuery(0, 0, n - 1, l, r);
+    }
+
+    long long queryPoint(int idx) {
+        return pointQuery(0, 0, n - 1, idx);
+    }
+};
+
+int main() {
+    int n, q;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    SegmentTree segTree(n);
+
+    cout << "Enter the number of queries: ";
+    cin >> q;
+
+    while (q--) {
+        int type;
+        cout << "Enter query type (1 for range add, 2 for point add, 3 for range sum, 4 for point query): ";
+        cin >> type;
+
+        if (type == 1) {
+            int l, r, val;
+            cout << "Enter the range (l, r) and value to add: ";
+            cin >> l >> r >> val;
+            segTree.updateRange(l, r, val);
+        } else if (type == 2) {
+            int idx, val;
+            cout << "Enter the index and value to add: ";
+            cin >> idx >> val;
+            segTree.updatePoint(idx, val);
+        } else if (type == 3) {
+            int l, r;
+            cout << "Enter the range (l, r) to query the sum: ";
+            cin >> l >> r;
+            cout << "Sum on segment: " << segTree.queryRange(l, r) << endl;
+        } else if (type == 4) {
+            int idx;
+            cout << "Enter the index to query: ";
+            cin >> idx;
+            cout << "Value at index: " << segTree.queryPoint(idx) << endl;
+        }
+    }
+
+    return 0;
+}
+
+// greedy scheduling
+
+Idea is to always select the next possible event that ends as early as possible. This algorithm selects the following events:
+
+It turns out that this algorithm always produces an optimal solution.
+The reason for this is that it is always an optimal choice to first select an event that ends as early as possible.
+After this, it is an optimal choice to select the next event using the same strategy, etc., until any other event cant be selected.
+One way the algorithm works is to consider what happens if first select an event that ends later than the event that ends as early as possible.
+Now, with having at most an equal number of choices how the next event can be selected.
+Hence, selecting an event that ends later can never yield a better solution, and the greedy algorithm is correct.
+
+// square root decomposition
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+// Square Root Decomposition
+
+int main() {
+    // input data
+    int n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    
+    vector<int> a(n); // Initialize vector `a` with size `n`
+    
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+
+    // preprocessing
+    int len = (int)sqrt(n + .0) + 1; // size of the block and the number of blocks
+    vector<int> b(len, 0); // Initialize block sum array `b`
+    
+    for (int i = 0; i < n; ++i)
+        b[i / len] += a[i];
+
+    // answering the queries
+    while (true) {
+        int l, r;
+        cout << "Enter the range [l, r] (or -1 -1 to exit): ";
+        cin >> l >> r;
+
+        if (l == -1 && r == -1) break; // Exit condition
+
+        int sum = 0;
+        int c_l = l / len, c_r = r / len; // Block numbers for l and r
+        
+        if (c_l == c_r) {
+            // If l and r are in the same block
+            for (int i = l; i <= r; ++i)
+                sum += a[i];
+        } else {
+            // Sum from l to the end of its block
+            for (int i = l, end = (c_l + 1) * len - 1; i <= end; ++i)
+                sum += a[i];
+            // Sum whole blocks between c_l and c_r
+            for (int i = c_l + 1; i <= c_r - 1; ++i)
+                sum += b[i];
+            // Sum from the start of c_r block to r
+            for (int i = c_r * len; i <= r; ++i)
+                sum += a[i];
+        }
+
+        cout << "Sum in range [" << l << ", " << r << "] is " << sum << endl;
+    }
+
+    return 0;
+}
+
+
+// Minimum cut
+
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <climits>
+#include <cstring>
+using namespace std;
+
+#define V 6 // Number of vertices in the graph
+
+// A BFS function to check if there's a path from source 's' to sink 't'
+// in the residual graph. It also fills parent[] to store the path.
+bool bfs(int rGraph[V][V], int s, int t, int parent[]) {
+    // A visited array to keep track of visited vertices
+    bool visited[V];
+    memset(visited, 0, sizeof(visited));
+
+    // Create a queue for BFS
+    queue<int> q;
+    q.push(s);
+    visited[s] = true;
+    parent[s] = -1;
+
+    // Standard BFS loop
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+
+        for (int v = 0; v < V; v++) {
+            if (!visited[v] && rGraph[u][v] > 0) {  // Check for unvisited vertex with positive capacity
+                // If we found a connection to the sink, return true
+                if (v == t) {
+                    parent[v] = u;
+                    return true;
+                }
+                q.push(v);
+                parent[v] = u;
+                visited[v] = true;
+            }
+        }
+    }
+    // No path found
+    return false;
+}
+
+// Ford-Fulkerson algorithm using Edmonds-Karp to find the max flow and identify the min-cut
+int fordFulkerson(int graph[V][V], int s, int t) {
+    int u, v;
+
+    // Create a residual graph and initialize residual capacities with the original capacities
+    int rGraph[V][V];
+    for (u = 0; u < V; u++)
+        for (v = 0; v < V; v++)
+            rGraph[u][v] = graph[u][v];
+
+    // This array stores the augmenting path found by BFS
+    int parent[V];
+
+    int max_flow = 0; // Initialize max flow
+
+    // Augment the flow while there is a path from source to sink
+    while (bfs(rGraph, s, t, parent)) {
+        // Find the minimum residual capacity of the edges along the path filled by BFS
+        int path_flow = INT_MAX;
+        for (v = t; v != s; v = parent[v]) {
+            u = parent[v];
+            path_flow = min(path_flow, rGraph[u][v]);
+        }
+
+        // Update the residual capacities of the edges and reverse edges along the path
+        for (v = t; v != s; v = parent[v]) {
+            u = parent[v];
+            rGraph[u][v] -= path_flow;
+            rGraph[v][u] += path_flow;
+        }
+
+        // Add the path flow to the overall flow
+        max_flow += path_flow;
+    }
+
+    // Now that we have the max flow, use BFS to find the vertices that are reachable from the source
+    bool visited[V];
+    memset(visited, false, sizeof(visited));
+    queue<int> q;
+    q.push(s);
+    visited[s] = true;
+
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+
+        for (int v = 0; v < V; ++v) {
+            if (!visited[v] && rGraph[u][v] > 0) {  // Check for unvisited vertex with positive residual capacity
+                q.push(v);
+                visited[v] = true;
+            }
+        }
+    }
+
+    // Print the edges which form the minimum cut
+    cout << "The edges in the minimum cut are: \n";
+    for (int u = 0; u < V; u++) {
+        for (int v = 0; v < V; v++) {
+            if (visited[u] && !visited[v] && graph[u][v] > 0) {
+                cout << u << " - " << v << "\n";
+            }
+        }
+    }
+
+    return max_flow;  // Return the overall flow
+}
+
+int main() {
+    // Create a graph with V vertices
+    int graph[V][V] = {
+        {0, 16, 13, 0, 0, 0},
+        {0, 0, 10, 12, 0, 0},
+        {0, 4, 0, 0, 14, 0},
+        {0, 0, 9, 0, 0, 20},
+        {0, 0, 0, 7, 0, 4},
+        {0, 0, 0, 0, 0, 0}
+    };
+
+    int source = 0, sink = 5;
+
+    cout << "The maximum possible flow is " << fordFulkerson(graph, source, sink) << endl;
+
+    return 0;
+}
+
+// Polygon Area
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+// Function to calculate the area of a polygon using the Shoelace Theorem
+double polygonArea(const vector<pair<double, double>>& points) {
+    int n = points.size(); // Number of vertices in the polygon
+    double area = 0.0;
+
+    // Apply the Shoelace formula
+    for (int i = 0; i < n; i++) {
+        int next = (i + 1) % n; // To ensure that the last vertex connects back to the first
+        area += points[i].first * points[next].second;
+        area -= points[i].second * points[next].first;
+    }
+
+    // The area is half of the absolute value of the result
+    return fabs(area) / 2.0;
+}
+
+int main() {
+    // Define the polygon as a vector of pairs (x, y)
+    vector<pair<double, double>> polygon = {
+        {0, 0}, {4, 0}, {4, 3}, {0, 3}
+    };
+
+    // Calculate and display the area
+    double area = polygonArea(polygon);
+    cout << "The area of the polygon is: " << area << endl;
+
+    return 0;
+}
+
+// Point in polygon
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Structure to represent a point
+struct Point {
+    double x, y;
+};
+
+// Function to check if a point q lies on a line segment p1-p2
+bool onSegment(Point p1, Point p2, Point q) {
+    if (q.x <= max(p1.x, p2.x) && q.x >= min(p1.x, p2.x) &&
+        q.y <= max(p1.y, p2.y) && q.y >= min(p1.y, p2.y)) {
+        return true;
+    }
+    return false;
+}
+
+// To find the orientation of the ordered triplet (p1, p2, q)
+// The function returns:
+// 0 -> p1, p2 and q are collinear
+// 1 -> Clockwise
+// 2 -> Counterclockwise
+int orientation(Point p1, Point p2, Point q) {
+    double val = (p2.y - p1.y) * (q.x - p2.x) - (p2.x - p1.x) * (q.y - p2.y);
+    if (val == 0) return 0;  // collinear
+    return (val > 0) ? 1 : 2; // clockwise or counterclockwise
+}
+
+// Function to check if the line segment p1-p2 intersects with q1-q2
+bool doIntersect(Point p1, Point p2, Point q1, Point q2) {
+    // Find the four orientations needed for general and special cases
+    int o1 = orientation(p1, p2, q1);
+    int o2 = orientation(p1, p2, q2);
+    int o3 = orientation(q1, q2, p1);
+    int o4 = orientation(q1, q2, p2);
+
+    // General case
+    if (o1 != o2 && o3 != o4) {
+        return true;
+    }
+
+    // Special cases:
+    // p1, p2 and q1 are collinear and q1 lies on segment p1-p2
+    if (o1 == 0 && onSegment(p1, p2, q1)) return true;
+
+    // p1, p2 and q2 are collinear and q2 lies on segment p1-p2
+    if (o2 == 0 && onSegment(p1, p2, q2)) return true;
+
+    // q1, q2 and p1 are collinear and p1 lies on segment q1-q2
+    if (o3 == 0 && onSegment(q1, q2, p1)) return true;
+
+    // q1, q2 and p2 are collinear and p2 lies on segment q1-q2
+    if (o4 == 0 && onSegment(q1, q2, p2)) return true;
+
+    // Doesn't fall in any of the above cases
+    return false;
+}
+
+// Function to check if the point p lies inside the polygon
+bool isPointInPolygon(const vector<Point>& polygon, Point p) {
+    int n = polygon.size();
+    if (n < 3) return false; // A polygon must have at least 3 vertices
+
+    // Create a point for the ray (a point far outside the polygon)
+    Point extreme = {10000, p.y};
+
+    // Count intersections of the ray with polygon edges
+    int count = 0, i = 0;
+    do {
+        int next = (i + 1) % n;
+
+        // Check if the point is on the segment
+        if (doIntersect(polygon[i], polygon[next], p, extreme)) {
+            if (orientation(polygon[i], polygon[next], p) == 0) {
+                return onSegment(polygon[i], polygon[next], p);
+            }
+            count++;
+        }
+        i = next;
+    } while (i != 0);
+
+    // Return true if count is odd, false if even
+    return (count % 2 == 1);
+}
+
+int main() {
+    // Define the polygon as a vector of points
+    vector<Point> polygon = {
+        {0, 0}, {10, 0}, {10, 10}, {0, 10}
+    };
+
+    Point p = {5, 5}; // Point to check
+
+    if (isPointInPolygon(polygon, p)) {
+        cout << "Point (" << p.x << ", " << p.y << ") is inside the polygon.\n";
+    } else {
+        cout << "Point (" << p.x << ", " << p.y << ") is outside the polygon.\n";
+    }
+
+    return 0;
+}
+
+// Algorithm descriptions
+
+1. **Lowest Common Ancestor (LCA)**  
+   *Identify:* Tree structure, find deepest common ancestor of two nodes.  
+   *Description:* Finds the lowest common ancestor of two nodes.
+
+2. **Kruskals Algorithm**  
+   *Identify:* Undirected graph, find minimum spanning tree (MST).  
+   *Description:* Builds MST by adding smallest edges without cycles.
+
+3. **Prims Algorithm**  
+   *Identify:* Undirected graph, find MST, better for dense graphs.  
+   *Description:* Grows MST from an arbitrary starting vertex.
+
+4. **Eulers Totient Function**  
+   *Identify:* Count numbers coprime with n in range [1, n].  
+   *Description:* Counts integers coprime with a given number n.
+
+5. **Tarjans Algorithm for SCC**  
+   *Identify:* Directed graph, find strongly connected components (SCC).  
+   *Description:* Finds SCCs using DFS and low-link values.
+
+6. **Articulation Points & Bridges**  
+   *Identify:* Graph, find critical vertices/edges that disconnect components.  
+   *Description:* Identifies critical nodes/edges affecting graph connectivity.
+
+7. **Bipartite Graph Checking**  
+   *Identify:* Graph, check if it can be colored with two colors.  
+   *Description:* Determines if a graph is bipartite (2-colorable).
+
+8. **Floyd-Warshall Algorithm**  
+   *Identify:* Weighted graph, find shortest paths between all pairs.  
+   *Description:* Finds all-pairs shortest paths in a graph.
+
+9. **Bellman-Ford Algorithm**  
+   *Identify:* Graph with negative weights, single-source shortest paths.  
+   *Description:* Finds shortest paths, detects negative weight cycles.
+
+10. **Dijkstras Algorithm**  
+   *Identify:* Weighted graph, no negative weights, single-source shortest paths.  
+   *Description:* Finds shortest paths from a source in non-negative graphs.
+
+11. **Topological Sort (Toposort)**  
+   *Identify:* Directed Acyclic Graph (DAG), linear order of vertices.  
+   *Description:* Produces linear order of vertices in a DAG.
+
+12. **Counting Connected Components**  
+   *Identify:* Graph, count the number of connected components.  
+   *Description:* Counts disconnected subgraphs in an undirected graph.
+
+13. **Edit Distance**  
+   *Identify:* Compare strings, find minimum edits (insert, delete, replace).  
+   *Description:* Finds the minimum number of edits between two strings.
+
+14. **Aho-Corasick Algorithm**  
+   *Identify:* Multiple pattern matching in a text.  
+   *Description:* Matches multiple patterns in a text simultaneously.
+
+15. **Trie**  
+   *Identify:* Large set of strings, need prefix search or storage.  
+   *Description:* Efficiently stores and searches strings using prefixes.
+
+16. **KMP Algorithm**  
+   *Identify:* Pattern matching, optimize search by skipping characters.  
+   *Description:* Finds patterns in text using partial match table.
+
+17. **Knapsack Problem**  
+   *Identify:* Select items with weights and values, maximize total value.  
+   *Description:* Maximizes value under a weight constraint.
+
+18. **Longest Increasing Subsequence (LIS)**  
+   *Identify:* Sequence, find longest subsequence with increasing elements.  
+   *Description:* Finds the longest subsequence of increasing numbers.
+
+19. **Prefix Sum**  
+   *Identify:* Repeated sum queries on subarrays.  
+   *Description:* Preprocesses array for quick range sum queries.
+
+20. **Dynamic Programming (DP)**  
+   *Identify:* Problem with overlapping subproblems and optimal substructure.  
+   *Description:* Solves problems by breaking into simpler subproblems.
+
+21. **Meet in the Middle**  
+   *Identify:* Large input size, break into smaller subproblems.  
+   *Description:* Divides problem into two halves and combines results.
+
+22. **Greedy Scheduling**  
+   *Identify:* Scheduling tasks, optimize resource allocation.  
+   *Description:* Makes locally optimal choices for scheduling.
+
+23. **Square Root Decomposition**  
+   *Identify:* Array, range queries with updates.  
+   *Description:* Divides array into blocks for efficient range queries.
+
+24. **2-SAT**  
+   *Identify:* Boolean formula, clauses with two literals each.  
+   *Description:* Determines satisfiability of 2-literal clauses.
+
+25. **3-SAT**  
+   *Identify:* Boolean formula, clauses with three literals each.  
+   *Description:* Determines satisfiability of 3-literal clauses (NP-complete).
+
+26. **Max Flow**  
+   *Identify:* Network, maximize flow from source to sink.  
+   *Description:* Finds maximum flow in a flow network.
+
+27. **Ford-Fulkerson Algorithm**  
+   *Identify:* Network, find max flow using augmenting paths.  
+   *Description:* Finds max flow by iteratively adding flow.
+
+28. **Edmonds-Karp Algorithm**  
+   *Identify:* Max flow problem, use BFS to find augmenting paths.  
+   *Description:* BFS-based Ford-Fulkerson to find max flow.
+
+29. **Bipartite Matching**  
+   *Identify:* Bipartite graph, find maximum matching between two sets.  
+   *Description:* Matches vertices from two disjoint sets.
+
+30. **Minimum Cut**  
+   *Identify:* Network, find minimum edge set to disconnect flow.  
+   *Description:* Finds the smallest edge set disconnecting source from sink.
+
+31. **Segment Tree**  
+   *Identify:* Range queries and updates on an array.  
+   *Description:* Efficiently handles range queries and updates.
+
+32. **Inclusion-Exclusion Principle**  
+   *Identify:* Counting problems with overlapping sets.  
+   *Description:* Counts elements in overlapping sets using inclusion-exclusion.
+
+33. **Polygon Area**  
+   *Identify:* Given vertices of a polygon, find its area.  
+   *Description:* Calculates area of a polygon using its vertices.
+
+34. **CCW (Counterclockwise)**  
+   *Identify:* Geometric problems, check if points form a counterclockwise turn.  
+   *Description:* Determines orientation of three points (CCW or CW).
+
+35. **Graham Scan**  
+   *Identify:* Given points, find the convex hull.  
+   *Description:* Finds the convex hull of a set of points.
+
+36. **Sweeping Line Algorithm**  
+   *Identify:* Geometric problems, detect intersections between line segments.  
+   *Description:* Processes geometric events by sweeping a line across points.
+
+37. **Union-Find (Disjoint Set Union - DSU)**  
+   *Identify:* Dynamic connectivity problems, check or unite sets of elements.  
+   *Description:* Tracks and merges disjoint sets efficiently.
+
+38. **Inclusion-Exclusion Principle**  
+   *Identify:* Counting problems with multiple overlapping conditions or sets.  
+   *Description:* Corrects overcounting by adding and subtracting intersections.
